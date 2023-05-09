@@ -15,7 +15,7 @@ export class CountryDetailService {
   }
 
   getGeonamesData(countryId:String): Observable<Object> {
-    return this.http.get(`https://api.geonames.org/countryInfoJSON?username=dwoo490&country=${countryId}`);
+    return this.http.get(`https://secure.geonames.org/countryInfoJSON?username=dwoo490&country=${countryId}`);
   }
 
   getWorldBankData(countryId: String): Observable<Object> {
