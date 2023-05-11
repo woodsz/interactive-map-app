@@ -12,7 +12,7 @@ export class InteractiveMapComponent {
     @ViewChild('map') map?: ElementRef;
     
     label_1: String = 'Interactive World Map (click on country to see data)';
-
+    currentCountry: SVGPathElement | undefined;
     countryInfo: CountryInfo | undefined;
     title: String = 'No country selected';
 
@@ -44,10 +44,20 @@ export class InteractiveMapComponent {
     }
 
     setClickedCountry(country:SVGPathElement): void {
+      this.unselectCurrentCountry();
+      country.classList.toggle('selected');
+      this.currentCountry = country;
+
       this.cds.getCountryInfo(country.id);
       this.cds.countrySubject.subscribe( countryInfo => {
         this.countryInfo = countryInfo;
       });
+    }
+
+    unselectCurrentCountry(): void{
+      if(this.currentCountry != undefined){
+        this.currentCountry.classList.toggle('selected');
+      }
     }
     
 }

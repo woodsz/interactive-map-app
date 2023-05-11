@@ -41,6 +41,10 @@ p {
    fill: red;
 }
 
+#map path.selected {
+   stroke: red;
+}
+
 #country-info {
    position: relative;
    display: grid;
