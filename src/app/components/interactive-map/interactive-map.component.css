@@ -43,6 +43,7 @@ p {
 
 #map path.selected {
    stroke: red;
+   stroke-width: 1.5px;
 }
 
 #country-info {
